@@ -1,6 +1,6 @@
-<!-- this !DOCTYPE declaration identifies this file as an HTML5 file. 
-It's not strictly necessary, but it does play nice with the browser. -->
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- this !DOCTYPE declaration identifies this file as an HTML5 file. 
+It's not strictly necessary in most cases, but it does keep IE from pooping the bed. -->
+
 
 <!-- every HTML document starts with the HTML tag -->
 <html>
@@ -19,7 +19,7 @@ It's not strictly necessary, but it does play nice with the browser. -->
 
     <!-- this META tag is used by mobile browsers to figure out how to display
     the page. We do this because we don't want people to resize it. -->
-	<meta name="viewport" content="user-scalable=yes, width=800">
+	<meta name="viewport" content="user-scalable=no, width=800">
     <!-- this will show up in the browser window's title bar -->
     <title>Ping Pong</title>
 
@@ -32,7 +32,7 @@ It's not strictly necessary, but it does play nice with the browser. -->
     so we force everyone to have the same amount. */
         body
         {
-            background-color: black;
+            background-color: #000000;
             margin: 0;
             padding: 0;
         }
@@ -165,6 +165,30 @@ but it is more convenient today to keep them in one. -->
             return elem;
         }
 
+
+        /* a little something for IE <= 8's benefit */
+        if (!document.addEventListener)
+        {
+            document.addEventListener = function (eventName, func)
+            {
+                eventName = "on" + eventName;
+                if (this[eventName])
+                {
+                    var temp = this[eventName];
+                    this[eventName] = function ()
+                    {
+                        console.log(event);
+                        temp(event);
+                        func(event);
+                    };
+                }
+                else
+                {
+                    this[eventName] = function () { func(event) };
+                }
+            };
+        }
+
         /* This class represents the player's paddle and score. */
         function Player(scoreDisplay, x, y, width, height)
         {
@@ -239,6 +263,7 @@ but it is more convenient today to keep them in one. -->
             }
         };
 
+
         /* The intersect() method checks to see if the rectangle for the ball
         overlaps the rectangle for the paddle in any way. It returns a TRUE/FALSE
         value that can be used to direct the calling function. */
@@ -299,7 +324,7 @@ but it is more convenient today to keep them in one. -->
         Ball.prototype.drop = function (direction, speed)
         {
             //get the ball out of view before the start of play
-            this.x = -1000;
+            this.x = -100;
             this.y = 0;
             this.display();
 
@@ -387,17 +412,7 @@ but it is more convenient today to keep them in one. -->
         
         /* This is an "event". It occurs when something happens. In this case, when the
         user moves their mouse. We use it to move the user's paddle. */
-
-	    function touchMove(evt)
-	    {
-		    if(evt.touches.length > 0)
-		    {
-		        movePlayer1(evt.touches[0].pageY);
-		    }
-		    evt.preventDefault();
-		}
-
-
+        
 	    function movePlayer1(y)
 	    {
 	        p1.moveTo(y - PADDLE_LENGTH / 2);
@@ -409,15 +424,22 @@ but it is more convenient today to keep them in one. -->
 			|| navigator.userAgent.indexOf("Android") != -1)
 		{
 		    console.log("Is Mobile OS");
-			document.addEventListener("touchmove", touchMove); 
+		    document.addEventListener("touchmove", function (evt)
+		    {
+		        if (evt.touches.length > 0)
+		        {
+		            movePlayer1(evt.touches[0].pageY);
+		        }
+		        evt.preventDefault();
+		    }); 
 		}
 		else
 		{
 		    console.log("Is Desktop OS");
-		    document.onmousemove = function (evt)
+		    document.addEventListener("mousemove", function (evt)
             {
 	            movePlayer1(evt.clientY);
-    	    };
+	        });
 		}
         
 
@@ -506,7 +528,7 @@ but it is more convenient today to keep them in one. -->
             {
                 /* If we're still playing and haven't gone to the game-over or inter-point state,
                 then we'll run the P2 AI based on the ball's new location */
-                for (var i = 0; i < delta; i += 5)
+                for (var i = 0; i < delta; i += AI_STEP)
                 {
                     p2.AI(ball);
                 }
@@ -515,6 +537,8 @@ but it is more convenient today to keep them in one. -->
 
             return true;
         }
+        
+        var AI_STEP = 5;
 
         /* This is really simple, mostly just spends a few of seconds displaying the Game Over
         text before resetting the game to the title screen */
@@ -560,7 +584,7 @@ but it is more convenient today to keep them in one. -->
             lastFrame = new Date().getTime();
             ball.drop(1, 0);
             state = prePlay;
-            timer = setInterval(timerTick, 33); //roughly 30 FPS
+            timer = setInterval(timerTick, 33); //roughly 30 FPS  (1000 / 30) = 33
         }
     </script>
 </head>
