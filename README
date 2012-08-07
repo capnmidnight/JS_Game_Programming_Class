@@ -1,7 +1,33 @@
-Programming is a lot of fun, and games are one of the best ways to get exposed to a variety of different programming tasks. My name is Sean McBeth and I'm versed in many ways of programming, having been working as a professional software developer for over 10 years. In that time, JavaScript has always been there for me. It is a language that everyone can run in some shape or form, thanks to the ubiquity of Web browsers; it is the BASIC of the modern computing era. Sharing that knowledge is important to me, so I am offering a class where everyone learns (or polishes) an extremely useful scripting language (JavaScript, aka ECMAScript, but NOT Java) in a very compelling medium (ahem, games).
+Programming is a lot of fun, and games are one of the best ways to get exposed 
+to a variety of different programming tasks. My name is Sean McBeth and I'm 
+versed in many ways of programming, having been working as a professional 
+software developer for over 10 years. In that time, JavaScript has always been 
+there for me. It is a language that everyone can run in some shape or form, 
+thanks to the ubiquity of Web browsers; it is the BASIC of the modern computing 
+era. Sharing that knowledge is important to me, so I am offering a class where 
+everyone learns (or polishes) an extremely useful scripting language 
+(JavaScript, aka ECMAScript, but NOT Java) in a very compelling medium (ahem, 
+games).
 
-All of the "class" materials will be posted here. I'm also blogging about the progress on http://www.hive76.org and http://makemeprogram.tumbler.com. There are also recurring "lab sessions" that I am holding at our Philadelphia hackerspace, Hive76, to help anyone who needs a hands-on approach. The online materials will all be free, while the lab sessions will be ala-carte and only $20 each ($15 for members).
+All of the "class" materials will be posted here. I'm also blogging about the 
+progress on http://www.hive76.org and http://makemeprogram.tumbler.com. There 
+are also recurring "lab sessions" that I am holding at our Philadelphia 
+hackerspace, Hive76, to help anyone who needs a hands-on approach. The online 
+materials will all be free, while the lab sessions will be ala-carte and only 
+$20 each ($15 for members).
 
-The class will cover JavaScript in detail (and it is a funky language in which you will learn both amazing and awful things), basic graphics editing secondarily (The Gimp, Photoshop, and Paint.NET will all be on display), and a small amount of anything else I deem necessary along the way (CSS, HTML, DOM, Audacity, basic logic and trigonometry for the arithmophobes). No browser or operating system will be held in higher regard over others, though certain browsers and operating systems will definitely be ignored in order to make that previous statement true (I'm looking at you, Lynx and BeOS).
+The class will cover JavaScript in detail (and it is a funky language in which 
+you will learn both amazing and awful things), basic graphics editing 
+secondarily (The Gimp, Photoshop, and Paint.NET will all be on display), and a 
+small amount of anything else I deem necessary along the way (CSS, HTML, DOM, 
+Audacity, basic logic and trigonometry for the arithmophobes). No browser or 
+operating system will be held in higher regard over others, though certain 
+browsers and operating systems will definitely be ignored in order to make that 
+previous statement true (I'm looking at you, Lynx and BeOS).
 
-The individual students' progress is going to define the ark of the class schedule, but the first project is definitely going to be Pong: replicating the original and extending it to more modern imaginations. Some other possible projects: Tic Tac Toe, Tetris, some kind of basic platformer/shooter, some kind of basic RPG. That's a lot to cover, and I want to make sure things flow with the class to everyone's interests, so I won't say much more than that.
+The individual students' progress is going to define the ark of the class 
+schedule, but the first project is definitely going to be Pong: replicating the 
+original and extending it to more modern imaginations. Some other possible 
+projects: Tic Tac Toe, Tetris, some kind of basic platformer/shooter, some kind 
+of basic RPG. That's a lot to cover, and I want to make sure things flow with 
+the class to everyone's interests, so I won't say much more than that.
