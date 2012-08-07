@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ping Pong</title>
+</head>
+<body>
+</body>
+</html>
+
+<!-- The first thing I do whenever I create a new HTML file is to setup the
+basic structure. The !DOCTYPE comes first, that tells the browser we're using
+HTML5. The character set declaration of UTF-8 isn't strictly necessary, but it
+plays nice with people in other countries. I give my page a title (shows up in
+the title bar if the window, or in the tab handle of tabbed browsers), and then
+finish up with a space defined for the body.
+
+This is basically the bare minimum for getting a page together. You have to have
+these tags, at the least, to satisfy the browser. The browser can make guesses
+as to what you mean if you leave out the !DOCTYPE at the top and the meta tag
+in the head, but you may not like the result.
+
+If you are using Cloud9 right now, you can click the Preview menu item above and
+you will see nothing but a blank, white screen.
+
+The !DOCTYPE *must* be the first line in the file. Some browsers will trigger
+themselves into a "quirks mode" if it isn't. There is a root <html> tag in which
+everything goes. Other than the !DOCTYPE specification and this comment tag, the
+HTML tag is the only tag that is allowed at the very top level.
+
+Think of HTML tags as branches on a tree. Drawn as a graph, the document might
+look like this:
+
+!DOCTYPE                 html
+    |                   /    \
+    |                  /      \
+  @html            head       body
+                  /    \
+                 /      \
+               meta      title
+              /            |
+             /             |
+         @charset     "Ping Pong"
+            |
+            |
+          "UTF-8"
+
+HTML tags start with an open angle bracket ( < ), followed by the tag name
+( meta ), then any attributes that the tag might have ( charset ), and then
+finished with a closing angle bracket ( > ). Some tags--such as the html, head,
+title, and body tags--take internal content and so require an ending tag to
+match their opening tag. The ending tag is similar to the opening tag in that it
+starts and ends with angle brackets, with the exception that a forward slash ( / )
+comes after the first angle bracket and before the name of the tag.
+
+It's good practice to never overlap opening and closing tags. For example, the
+tag for "bold" is <strong> and the tag for "italic" is <em>. If you want a mix
+of bold and italic text, you might be tempted to use something like:
+
+    <strong>just bold <em>bold and italic</strong> just italic</em>
+
+Because the <em> tag was opened after the <strong> tag was opened, you should
+close the <em> tag before the <strong> tag is closed. The above example is more
+appropriately done (for the sake of tag nesting, not for the sake of styling)
+
+    <strong>just bold <em>bold and italic</em></strong> <em>just italic</em>
+
+If you work to try to do things the correct way, you will find fewer problems
+with your code in the long run, and it will work for much longer. It's good to
+experiment and break the rules when you're learning, but it's usually best to
+take that learning and rework it to get it back in line with the standards.
+
+-->
