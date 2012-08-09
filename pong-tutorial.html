@@ -3,15 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <title>Ping Pong</title>
-    <style type="text/css"></style>
+    <style type="text/css">
+    /* I want to start make this raw HTML file look like the game of
+    Pong, so I start with the CSS. Here, I set the background. 
+    
+    In CSS, to reference an HTML tag, merely type the tag name and
+    the list of rules that follows will apply to any instance of that 
+    tag. This is called the "selector", as it selects what HTML elements
+    it will apply to, and there are more types of selectors than just
+    HTML tag names. After the selector is the "declaration group",
+    surrounded by curly braces, with the list of "declarations", each
+    ending in a semicolon (;). */
+    body
+    {
+        background-color: black;
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    /* Now I put one of the paddles into place. These are just rough
+    guesses at this point as to what these values should be. The
+    background-color attribute can take named colors like "red" and
+    "blue" or it can take RGB color values in the format of #RRGGBB,
+    where each of RR, GG, and BB are hexadecimal numbers for values
+    between 0 and 255. 
+    
+    Here, the selector has a hash symbol prefixing it. This identifies
+    the selector as an ID selector. This CSS rule will only apply to the
+    element that has that ID. Scroll down now to the HTML section and
+    you will see one of the div tags has an ID attribute set to
+    "player1". For the HTML element's ID attribute, the hash symbol is
+    not used. The only place the hash symbol is used for this purpose
+    is in the CSS.
+    */
+    #player1
+    {
+        position:absolute;
+        top: 100px;
+        left: 0px;
+        width: 20px;
+        height: 200px;
+        background-color: #00ff00;
+    }
+    
+    /* I'm also going to copy the #player1 rule to create a near
+    duplicate for player2 */
+    #player2
+    {
+        position:absolute;
+        top: 100px;
+        left: 400px; /* the left declaration is the only thing that differs here */
+        width: 20px;
+        height: 200px;
+        background-color: #00ff00;
+    }
+    
+    /* And I finish off the style sheet with the rest of the elements
+    that I was looking to block out.
+    
+    Here, in this declaration group for one of the score elements, I've
+    included rules for the font. A list of fonts like this will make the
+    element display in the first font that is available on the system on
+    which the HTML file is being viewed. Generally speaking, you should
+    put the font you really want up first, followed by a few fonts that
+    are more popular but are acceptable substitutes. Finally, there are
+    a few "catch all" font types that can be used just in case you don't
+    know what fonts the user has installed: serif, sans-serif, and monospace */
+    #score1
+    {
+        position: absolute;
+        top: 20px;
+        left: 175px;
+        font-family: fixedsys, Courier, "Courier New", monospace;
+        font-size: 24pt;
+        color: #00ff00;
+    }
+    
+    /* I'm just copying these CSS groups. I'll worry about reducing
+    their redundancy later. */
+    #score2
+    {
+        position: absolute;
+        top: 20px;
+        left: 225px;
+        font-family: fixedsys, Courier, "Courier New", monospace;
+        font-size: 24pt;
+        color: #00ff00;
+    }
+    
+    #top
+    {
+        position:absolute;
+        top: 0px;
+        left: 0px;
+        width: 400px;
+        height: 20px;
+        background-color: #00ff00;
+    }
+    
+    #bottom
+    {
+        position:absolute;
+        top: 400px;
+        left: 0px;
+        width: 400px;
+        height: 20px;
+        background-color: #00ff00;
+    }
+    
+    #seperator
+    {
+        position:absolute;
+        top: 0px;
+        left: 200px;
+        width: 20px;
+        height: 400px;
+        background-color: #00ff00;
+    }
+    </style>
     <script type="text/javascript"></script>
 </head>
 <body>
     <div id="board">
         <div id="player1" class="paddle"></div>
         <div id="player2" class="paddle"></div>
-        <div id="score1" class="score"></div>
-        <div id="score2" class="score"></div>
+        <!-- I also fill in a value for the score elements, just so
+        there is something to see for the moment -->
+        <div id="score1" class="score">0</div>
+        <div id="score2" class="score">0</div>
         <div id="top" class="wall"></div>
         <div id="bottom" class="wall"></div>
         <div id="seperator"></div>
@@ -19,33 +138,6 @@
 </body>
 </html>
 
-<!-- After I have the HTML5 supporting template up, I block out more of 
-the HTML.
-
-I've got a place holder for the style, script, and game board, as well 
-as placeholders for all of the game pieces. 
-
-It might not stay this way by the end. For example, I might decide to do
-the graphics in HTML5 rather than Dynamic HTML, but doing it in this way
-helps me think the problem through.
-
-The type attribute on the style and script tags are MIME type specifiers.
-There are a lot of MIME types, and sometimes you will need to know the
-exact MIME type for a file. This list is handy: 
-
-    http://www.iana.org/assignments/media-types/index.html
-
-Most of these you will probably never use.
-
-The div (for "division") tag is a general purpose "box" that is used in
-HTML to hold things. The "id" attribute is used to uniquely identify
-that particular box; no two div tags should have the same id. The class
-attribute is used by CSS to style a wide variety of elements with the
-same features; multiple HTML tags may use the same class name, and even
-may use multiple class names, separated by a space, to combine the
-effects of multiples CSS classes.
-
-At this point, there still isn't anything to see, but soon it will take
-shape.
-
--->
+<!-- once this is all done, we can view the file and see that it doesn't
+really look right. We'll have to tweak a few things, and along the way,
+remove some of the redundancy -->
